@@ -1,0 +1,127 @@
+//teselado
+PImage mosaico1;
+PImage mosaico2;
+PImage mosaico3;
+//int giro=45;
+float delta=0;
+float t=30;
+void setup ()
+{
+ size(600,450);
+ mosaico1 = loadImage("mosaico_1.png");
+ mosaico2 = loadImage("mosaico_2.png");
+ mosaico3 = loadImage("mosaico_3.png");
+// background(155);
+background(#2C62A7);
+}
+
+ void draw(){
+   //background(#2C62A7);
+ if(mousePressed == true){
+   delta+=0.1;
+   //t=random(30);
+ }
+   else{
+     delta+=(0);
+     background(#2C62A7);
+     t=30;
+   }
+ 
+  for(int i=0; i<=width; i+=100){
+   for(int j=0; j<=height; j+=100) {
+     stroke(#F5B62F);
+     strokeWeight(5);
+     fill(#FCFC57);
+     pushMatrix();
+     translate(i,j);
+     rotate(radians(45+delta));
+     rect(0, 0, 50, 50);
+     image(mosaico1,5,5);
+     stroke(#FCFC57);
+     strokeWeight(3);
+     fill(#F5B62F);
+     rect(10,10,t,t);
+     image(mosaico2,15,15);
+     
+     noStroke();
+    
+     fill(#F5B62F);  
+     ellipse(22.5,25,5,5);
+     ellipse(27.5,25,5,5);
+     ellipse(25,22.5,5,5);
+     ellipse(25,27.5,5,5);
+      fill(0);
+     ellipse(25,25,5,5); 
+ popMatrix(); 
+ 
+ }
+}
+for(int i=50; i<=width; i+=100){
+   for(int j=-50; j<=height; j+=100) {
+     stroke(#F5B62F);
+     strokeWeight(5);
+     fill(#FCFC57);
+     pushMatrix();
+     translate(i,j);
+     rotate(radians(45-delta));
+     rect(0, 0, 50, 50);
+     image(mosaico1,5,5);
+     stroke(#FCFC57);
+     strokeWeight(3);
+     fill(#F5B62F);
+     rect(10,10,30,30);
+     image(mosaico2,15,15);
+     
+     noStroke();
+    
+     fill(#F5B62F);  
+     ellipse(22.5,25,5,5);
+     ellipse(27.5,25,5,5);
+     ellipse(25,22.5,5,5);
+     ellipse(25,27.5,5,5);
+      fill(0);
+     ellipse(25,25,5,5); 
+ popMatrix(); 
+ 
+ }
+}
+for(int i=0; i<=width; i+=100){
+   for(int j=65; j<=height; j+=100) {
+     pushMatrix();
+     translate(i,j);
+     rotate(radians(45+delta));
+     image(mosaico3,0,0);
+     noStroke();
+     fill(#F5B62F);
+     ellipse(11,15,7,7);
+     ellipse(19,15,7,7);
+     ellipse(15,11,7,7);
+     ellipse(15,19,7,7);
+     fill(0);
+     ellipse(15,15,7,7);
+     popMatrix();
+ }
+}
+for(int i=50; i<=width; i+=100){
+   for(int j=15; j<=height; j+=100) {
+     pushMatrix();
+     translate(i,j);
+     rotate(radians(45-delta));
+     image(mosaico3,0,0);
+     noStroke();
+     fill(#F5B62F);
+     ellipse(11,15,7,7);
+     ellipse(19,15,7,7);
+     ellipse(15,11,7,7);
+     ellipse(15,19,7,7);
+     fill(0);
+     ellipse(15,15,7,7);
+     popMatrix();
+ }
+}
+rect(0,400,600,50);
+fill(255);
+textSize(20);
+text("Presiona el mouse para movimiento",100,425);
+ }
+ 
